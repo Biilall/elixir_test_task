@@ -3,8 +3,8 @@ use Mix.Config
 # Configure your database
 config :todo_list_app, TodoListApp.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("DB_USER") || "postgres",
+  password: System.get_env("DB_PASSWORD") || "postgres",
   database: "todo_list_app_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
